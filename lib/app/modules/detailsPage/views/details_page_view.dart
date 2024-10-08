@@ -10,14 +10,18 @@ class DetailsPageView extends GetView<DetailsPageController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('DetailsPageView'),
+        title: const Text('User Details'),
+        foregroundColor: Colors.white,
+        backgroundColor: const Color(0XFF6f2da8),
+        elevation: 2.0,
         centerTitle: true,
       ),
-      body: const Center(
-        child: Text(
-          'DetailsPageView is working',
-          style: TextStyle(fontSize: 20),
-        ),
+      body: const Column(
+        children: [
+          // Text(controller.productModel!.data!.firstName.toString()),
+          // Text(controller.productModel!.data!.email.toString()),
+          // Text(controller.productModel!.data!.avatar.toString()),
+        ],
       ),
     );
   }

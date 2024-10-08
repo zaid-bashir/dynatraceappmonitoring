@@ -5,20 +5,29 @@ import 'package:get/get.dart';
 
 import 'app/routes/app_pages.dart';
 
+String currentUser = "Zaid Bashir (UAT)";
 
 void main() {
-  Dynatrace().start(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp(
+  Dynatrace().startWithoutWidget(
+    configuration: const Configuration(
+    reportCrash: true,
+    logLevel: LogLevel.Debug,
+    // beaconUrl,
+    // applicationId,
+    certificateValidation: true,
+    userOptIn: false,
+  ));
+  Dynatrace().identifyUser("Current User: $currentUser");
+  runApp(
+    GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: "Dynatrace YourCompass App",
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
-    );
-  }
+    ),
+  );
 }
+
+
+
+
