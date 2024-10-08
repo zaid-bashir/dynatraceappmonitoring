@@ -6,10 +6,12 @@ dynatrace {
       configurations {
         defaultConfig {
           autoStart{
+            applicationId 'c9669803-6691-4149-ab23-20ffd081047e'
+            beaconUrl 'https://bf28127fnf.bf.dynatrace.com/mbeacon'
             applicationId '690d765d-38e2-4bdf-bc05-a6dd19f0b64d'
             beaconUrl 'https://bf28127fnf.bf.dynatrace.com/mbeacon'
           }
-          userOptIn true
+          userOptIn false
           agentBehavior.startupLoadBalancing true
         }
       }

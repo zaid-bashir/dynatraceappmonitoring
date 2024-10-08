@@ -9,6 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   dynatrace_flutter_plugin: ^3.297.1
   get: ^4.6.6
+  webview_flutter: ^4.0.6
   dio: ^5.7.0
 
 dev_dependencies:
