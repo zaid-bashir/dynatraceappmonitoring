@@ -1,3 +1,7 @@
+// ignore_for_file: avoid_print
+
+import 'dart:math';
+
 import 'package:dynatrace_app_monitoring/app/modules/detailsPage/views/details_page_view.dart';
 import 'package:dynatrace_flutter_plugin/dynatrace_flutter_plugin.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +27,34 @@ class _HomeViewState extends State<HomeView> {
     homeController.fetchProducts();
   }
 
-String currentUser = "Zaid Bashir (STAG V1.1)";
+  // String currentUser = "Zaid Bashir (STAG V1.0)";
+  // List of users
+List<String> users = [
+  'Alice',
+  'Bob',
+  'Charlie',
+  'David',
+  'Eve',
+  'Frank',
+  'Grace',
+  'Hannah',
+  'Ivan',
+  'Jack'
+];
 
+// Function to get a random name
+String getRandomUser() {
+  final random = Random();
+  int randomIndex = random.nextInt(users.length);
+  return users[randomIndex];
+}
+
+void main() {
+  // Example: Call the function multiple times
+  print(getRandomUser()); // Random user from the list
+  print(getRandomUser()); // Random user from the list
+  print(getRandomUser()); // Random user from the list
+}
   
 
   @override
@@ -61,7 +91,7 @@ String currentUser = "Zaid Bashir (STAG V1.1)";
       }, itemCount: homeController.productModel!.data!.length),),
           const SizedBox(height: 60,),
           ElevatedButton(onPressed: (){
-            Dynatrace().identifyUser(currentUser);
+            Dynatrace().identifyUser("${getRandomUser()} (STAG V1.0)");
             homeController.isProductsLoading.value = true;
             homeController.fetchProducts();
             homeController.isProductsLoading.value = false;
@@ -70,6 +100,17 @@ String currentUser = "Zaid Bashir (STAG V1.1)";
             myHomeAct.leaveAction();
             mySubAction.leaveAction();
           }, child: const Text("Refresh"),),
+          const SizedBox(height: 60,),
+          ElevatedButton(onPressed: (){
+            Dynatrace().endSession();
+            homeController.isProductsLoading.value = true;
+            homeController.fetchProducts();
+            homeController.isProductsLoading.value = false;
+            DynatraceRootAction myHomeAct = Dynatrace().enterAction("Opened Details Page...");
+            DynatraceAction mySubAction = myHomeAct.enterAction("Tapped User Detail Tile...");
+            myHomeAct.leaveAction();
+            mySubAction.leaveAction();
+          }, child: const Text("CLOSE"),),
         ],),
       ),
     );
