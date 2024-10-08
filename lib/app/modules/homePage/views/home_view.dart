@@ -23,6 +23,7 @@ class _HomeViewState extends State<HomeView> {
     homeController.fetchProducts();
   }
 
+String currentUser = "Zaid Bashir (STAG V1.1)";
 
   
 
@@ -60,6 +61,7 @@ class _HomeViewState extends State<HomeView> {
       }, itemCount: homeController.productModel!.data!.length),),
           const SizedBox(height: 60,),
           ElevatedButton(onPressed: (){
+            Dynatrace().identifyUser(currentUser);
             homeController.isProductsLoading.value = true;
             homeController.fetchProducts();
             homeController.isProductsLoading.value = false;

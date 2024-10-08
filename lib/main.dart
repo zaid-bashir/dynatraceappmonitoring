@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 
 import 'app/routes/app_pages.dart';
 
-String currentUser = "Zaid Bashir (UAT)";
 
 void main() {
   Dynatrace().startWithoutWidget(
@@ -17,7 +16,6 @@ void main() {
     certificateValidation: true,
     userOptIn: false,
   ));
-  Dynatrace().identifyUser("Current User: $currentUser");
   runApp(
     GetMaterialApp(
       debugShowCheckedModeBanner: false,
