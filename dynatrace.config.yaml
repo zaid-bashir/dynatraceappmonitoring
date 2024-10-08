@@ -4,7 +4,7 @@ android:
       configurations {
         defaultConfig {
           autoStart{
-            applicationId 'c9669803-6691-4149-ab23-20ffd081047e'
+            applicationId '690d765d-38e2-4bdf-bc05-a6dd19f0b64d'
             beaconUrl 'https://bf28127fnf.bf.dynatrace.com/mbeacon'
           }
           userOptIn false
@@ -16,7 +16,7 @@ android:
 ios:
   config:
     "<key>DTXApplicationID</key>
-    <string>c9669803-6691-4149-ab23-20ffd081047e</string>
+    <string>690d765d-38e2-4bdf-bc05-a6dd19f0b64d</string>
     <key>DTXBeaconURL</key>
     <string>https://bf28127fnf.bf.dynatrace.com/mbeacon</string>
     <key>DTXUserOptIn</key>
